@@ -4,7 +4,6 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Text;
 
-import java.util.ArrayList;
 import java.util.Date;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
@@ -88,6 +87,7 @@ public class DocumentJDO {
 		
 		// Set expiration to be current date + 1 minute
 		Date now = new Date();
+		lockedUntil = new Date(now.getTime() + 30000);
 		return new LockedDocument(lockedBy, lockedUntil, getKey(), title, contents.getValue());
 	}
 	

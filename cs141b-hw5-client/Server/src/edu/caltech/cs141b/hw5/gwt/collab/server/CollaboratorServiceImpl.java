@@ -14,7 +14,6 @@ import edu.caltech.cs141b.hw5.gwt.collab.shared.LockUnavailable;
 import edu.caltech.cs141b.hw5.gwt.collab.shared.LockedDocument;
 import edu.caltech.cs141b.hw5.gwt.collab.shared.UnlockedDocument;
 
-import javax.jdo.PersistenceManager;
 import javax.jdo.Transaction;
 import javax.jdo.Query;
 
@@ -40,12 +39,13 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
 		Transaction tx = pm.currentTransaction();
 		Query query = pm.newQuery(DocumentJDO.class);
 		
-		// Store list of the metadata of the current documents
-		List<DocumentMetadata> docsList = new ArrayList<DocumentMetadata>();
 		try {
 			// Start transaction
 			tx.begin();
 			log.fine("Getting a list of currently available documents");
+			
+			// Store list of the metadata of the current documents
+			List<DocumentMetadata> docsList = new ArrayList<DocumentMetadata>();
 			
 			// Get documents from query
 			List<DocumentJDO> results = ((List<DocumentJDO>) query.execute());
@@ -56,10 +56,11 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
 				}
 			}
 			tx.commit();
+			return docsList;
 		} finally {
 			query.closeAll();
+			pm.close();
 		}
-		return docsList;
 	}
 
 	@Override
@@ -75,11 +76,11 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
         PersistenceManager pm = PMF.get().getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         
-        LockedDocument lockedDoc = null;
         try {
         	// Start transaction
             tx.begin();   
             
+            LockedDocument lockedDoc = null;
             // Get document from datastore with given key
             DocumentJDO document = pm.getObjectById(DocumentJDO.class, KeyFactory.stringToKey(documentKey));
             log.fine("Attemping to lock " + document.getTitle() + ".");
@@ -89,9 +90,9 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
             
             // Allow access only if document has no owner or if expiration date has passed
             // for previous owner. Otherwise, throw exception
-            if (document.getLockedBy() == null || document.getLockedUntil().before(now)) {
+            if (document.getLockedBy() == null || now.after(document.getLockedUntil())) {
             	// Lock document. Use client's IP address to determine document ownership
-                lockedDoc = document.lock(getThreadLocalRequest().getRemoteAddr());
+                lockedDoc = document.lock(ip);
             } else {
             	log.fine("Lock for " + document.getTitle() + 
             			" is unavailable. Locked until: " + document.getLockedUntil().toString());
@@ -101,12 +102,13 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
             }
             
             tx.commit();
+            return lockedDoc;
         } finally {
             if (tx.isActive()) {
                 tx.rollback();
             }
+            pm.close();
         } 
-        return lockedDoc;
 	}
 
 	@Override
@@ -115,23 +117,24 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
         PersistenceManager pm = PMF.get().getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         
-        UnlockedDocument unlockedDoc = null;
+        
         try {
         	// Start transaction
             tx.begin();
             
             // Get document with given key and create UnlockedDocument object to return
             DocumentJDO document = pm.getObjectById(DocumentJDO.class, KeyFactory.stringToKey(documentKey));
-            unlockedDoc = document.getUnlockedDocumentVersion();
+            UnlockedDocument unlockedDoc = document.getUnlockedDocumentVersion();
             
             log.fine("Obtaining document: " + document.getTitle() + " for read-only purpose.");
             tx.commit();
+            return unlockedDoc;
         } finally {
             if (tx.isActive()) {
                 tx.rollback();
             }
+            pm.close();
         }
-        return unlockedDoc;
 	}
 
 	@Override
@@ -146,11 +149,11 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
 		PersistenceManager pm = PMF.get().getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         
-        UnlockedDocument unlockedDoc;
-        DocumentJDO document;
+        
         try {
         	// Start transaction
             tx.begin();
+            DocumentJDO document;
             
             // If there is no key, assume new document. Otherwise, try to save document
             if (doc.getKey() == null) {
@@ -158,7 +161,7 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
                 
             	// Create new document and store object in datastore
             	document = new DocumentJDO(doc.getTitle(), doc.getContents(),
-            		doc.getLockedBy(), doc.getLockedUntil());
+            		null, null);
             	pm.makePersistent(document);
             } else {
             	log.fine("Updating document " + doc.getTitle() + " in persistence manager.");
@@ -170,22 +173,24 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
             	document = pm.getObjectById(DocumentJDO.class, KeyFactory.stringToKey(doc.getKey()));
             	
             	// If time has not expired, update document contents. Otherwise, throw exception
-            	if (now.before(doc.getLockedUntil())) {
+            	if (doc.getLockedBy().equals(ip) && now.before(doc.getLockedUntil())) {
+            		document.setTitle(doc.getTitle());
             		document.setContents(doc.getContents());
             	} else {
             		throw new LockExpired("Document " + doc.getTitle() + " lock expired");
             	}
             }
             // Create read-only version and unlock document
-            unlockedDoc = document.getUnlockedDocumentVersion();
+            UnlockedDocument unlockedDoc = document.getUnlockedDocumentVersion();
             document.unlock();
             tx.commit();
+    		return unlockedDoc;
         } finally {
             if (tx.isActive()) {
                 tx.rollback();
             }
+            pm.close();
         }
-		return unlockedDoc;
 	}
 
 	@Override
@@ -199,7 +204,6 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		
-		DocumentJDO document;
 		try {
 			// Start transaction
 			tx.begin();
@@ -209,21 +213,22 @@ public class CollaboratorServiceImpl extends RemoteServiceServlet implements
 			Date currentDate = new Date();
 			
 			// If document already expired, throw exception. Otherwise, unlock document
-			if (doc.getLockedUntil().before(currentDate)) {
+			if (doc.getLockedBy().equals(ip) && currentDate.after(doc.getLockedUntil())) {
 				throw new LockExpired("Lock expired before attempting to release " +
 						"document: " + doc.getTitle());
 			} else {
 				// Get document from datastore with given key
-				document = pm.getObjectById(DocumentJDO.class, KeyFactory.stringToKey(doc.getKey()));
+				DocumentJDO document = pm.getObjectById(DocumentJDO.class, KeyFactory.stringToKey(doc.getKey()));
 				document.unlock();
 			}
 			tx.commit();
+			return;
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
+			pm.close();
 		}
-		return;
 	}
 
 }
