@@ -1,0 +1,55 @@
+package edu.caltech.cs141b.hw5.android;
+
+import edu.caltech.cs141b.hw5.android.data.LockedDocument;
+import edu.caltech.cs141b.hw5.android.data.UnlockedDocument;
+import android.app.Application;
+import android.content.res.Configuration;
+
+public class MyObjects extends Application {
+	private LockedDocument lockedDoc;
+	private UnlockedDocument readOnlyDoc;
+	private static MyObjects singleton;
+	
+	public MyObjects getInstance() {
+		return singleton;
+	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		singleton = this;
+	}
+
+	@Override
+	public void onLowMemory() {
+		super.onLowMemory();
+	}
+
+	@Override
+	public void onTerminate() {
+		super.onTerminate();
+	}
+	
+	public LockedDocument getLockedDoc(){
+		return lockedDoc;
+	}
+
+	public UnlockedDocument getUnlockedDoc(){
+		return readOnlyDoc;
+	}
+	
+	public void setLockedDoc(LockedDocument doc) {
+		lockedDoc = doc;
+		readOnlyDoc = null;
+	}
+	
+	public void setUnlockedDoc(UnlockedDocument doc) {
+		readOnlyDoc = doc;
+		lockedDoc = null;
+	}
+}

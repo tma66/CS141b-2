@@ -29,7 +29,7 @@ public class DataConverter {
 			return new LockedDocument(null, null, null, 
 					docInfo.getTitle(), docInfo.getContents());
 		} 
-		
+
 		return new LockedDocument(docInfo.getLockedBy(), new Date(docInfo.getLockedUntil()), 
 				docInfo.getKey(), docInfo.getTitle(), docInfo.getContents());
 	}
@@ -48,6 +48,7 @@ public class DataConverter {
 		// and won't have these fields. Set these only when key is
 		// not null because protocol buffer can't handle null values
 		if (doc.getKey() != null) {
+
 			builder.setKey(doc.getKey())
 					.setLockedUntil(doc.getLockedUntil().getTime())
 					.setLockedBy(doc.getLockedBy());

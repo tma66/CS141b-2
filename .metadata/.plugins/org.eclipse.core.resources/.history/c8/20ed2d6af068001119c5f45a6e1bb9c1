@@ -1,0 +1,214 @@
+package edu.caltech.cs141b.hw5.android;
+
+import java.util.List;
+
+
+import edu.caltech.cs141b.hw5.android.data.DocumentMetadata;
+import edu.caltech.cs141b.hw5.android.data.InvalidRequest;
+import edu.caltech.cs141b.hw5.android.data.LockExpired;
+import edu.caltech.cs141b.hw5.android.data.LockUnavailable;
+import edu.caltech.cs141b.hw5.android.data.LockedDocument;
+import edu.caltech.cs141b.hw5.android.data.UnlockedDocument;
+import edu.caltech.cs141b.hw5.android.proto.CollabServiceWrapper;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class DocumentDisplayActivity extends Activity {
+
+	private static String TAG = "DocumentDisplayActivity";
+	private CollabServiceWrapper service;
+	private MyObjects mObjects;
+	private Button save;
+	private Button lock;
+	private Button refresh;
+	private EditText text1;
+	private EditText text2;
+	
+	public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.documentdisplay);
+        save = (Button) findViewById(R.id.save);
+        lock = (Button) findViewById(R.id.lock);
+        refresh = (Button) findViewById(R.id.refresh);
+        text1 = (EditText) findViewById(R.id.title);
+		text2 = (EditText) findViewById(R.id.contents);
+        
+        service = new CollabServiceWrapper();
+        mObjects = (MyObjects)getApplicationContext();
+        
+        Bundle extras = getIntent().getExtras();
+		if (extras == null) {
+			return;
+		}
+		
+		if (extras.getString("method").equals("list")) {
+			
+			String key = extras.getString("documentKey");
+			if (key == null) {
+				return;
+			} else if (key.equals("null")) {
+				discardExisting(null);
+				LockedDocument doc = new LockedDocument(null, null, null,
+						"Enter the document title.",
+						"Enter the document contents.");
+				mObjects.setLockedDoc(doc);
+				setView(doc);
+			} else {
+				LockedDocument lockedDoc = mObjects.getLockedDoc();
+				if (lockedDoc != null && key.equals(lockedDoc.getKey())) {
+					setView(lockedDoc);
+				} else {
+					discardExisting(key);
+					try {
+						UnlockedDocument doc = service.getDocument(key);
+						mObjects.setUnlockedDoc(doc);
+						setView(doc);
+					} catch (InvalidRequest e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		} else if (extras.getString("method").equals("main")) {
+			UnlockedDocument unLockedDoc = mObjects.getUnlockedDoc();
+			LockedDocument lockedDoc = mObjects.getLockedDoc();
+			if (unLockedDoc != null) {
+				setView(unLockedDoc);
+			} else if (lockedDoc != null) {
+				setView(lockedDoc);
+			}
+		}
+        
+    }
+	private void discardExisting(String newKey) {
+		LockedDocument lockedDoc = mObjects.getLockedDoc();
+		UnlockedDocument unlockedDoc = mObjects.getUnlockedDoc();
+		if (lockedDoc != null) {
+			if (lockedDoc.getKey() == null) {
+				//statusUpdate("Discarding new document.");
+				Toast.makeText(this, "Discarding new document.", Toast.LENGTH_LONG).show();
+				
+			}
+			else if (!lockedDoc.getKey().equals(newKey)) {
+				try {
+					service.releaseLock(lockedDoc);
+				} catch (LockExpired e) {
+					e.printStackTrace();
+				} catch (InvalidRequest e) {
+					e.printStackTrace();
+				}
+			}
+			else {
+				// Newly active item is the currently locked item.
+				return;
+			}
+			lockedDoc = null;
+			//setDefaultButtons();
+		} else if (unlockedDoc != null) {
+			if (unlockedDoc.getKey().equals(newKey)) return;
+			unlockedDoc = null;
+		}
+	}
+	private void setView(UnlockedDocument doc) {
+		text1.setText(doc.getTitle());
+		text2.setText(doc.getContents());
+		text1.setFocusable(false);
+		text1.setEnabled(false);
+		text2.setFocusable(false);
+		text2.setEnabled(false);
+		save.setEnabled(false);
+		lock.setEnabled(true);
+		refresh.setEnabled(true);
+	}
+	private void setView(LockedDocument doc) {
+		text1.setText(doc.getTitle());
+		text2.setText(doc.getContents());
+		text1.setFocusableInTouchMode(true);
+		text1.setEnabled(true);
+		text2.setFocusableInTouchMode(true);
+		text2.setEnabled(true);
+		lock.setEnabled(false);
+		refresh.setEnabled(false);
+		save.setEnabled(true);
+	}
+	public void mainMenu(View view) {
+		LockedDocument mlocked = mObjects.getLockedDoc();
+
+		if (mlocked != null) {
+    		LockedDocument locked = new LockedDocument(mlocked.getLockedBy(), 
+    			mlocked.getLockedUntil(), mlocked.getKey(), text1.getText().toString(), text2.getText().toString());
+    		mObjects.setLockedDoc(locked);
+		}
+    	Intent intent = new Intent().setClass(this, CollaboratorAndroidActivity.class);
+    	startActivity(intent);
+    }
+	public void refresh(View view) {
+    	UnlockedDocument unlocked = null;
+		try {
+			unlocked = service.getDocument(mObjects.getCurrentDocumentKey());
+		} catch (InvalidRequest e) {
+			e.printStackTrace();
+		}
+    	if (unlocked != null) {
+			setView(unlocked);
+		}
+    }
+    
+    public void lock(View view) {
+    	LockedDocument locked = null;
+    	try {
+			mObjects.setWaitingKey(mObjects.getCurrentDocumentKey());
+			locked = service.lockDocument(mObjects.getCurrentDocumentKey());
+			if (locked.getKey().equals(mObjects.getCurrentDocumentKey())) {
+				mObjects.setLockedDoc(locked);
+				mObjects.addStatusList("Lock retrieved for document.");
+			}
+		} catch (InvalidRequest e) {
+			e.printStackTrace();
+		} catch (LockUnavailable e) {
+			e.printStackTrace();
+			Toast.makeText(this, "Lock unavailable...Please wait", Toast.LENGTH_LONG).show();
+		}
+    	if (locked != null) {
+			setView(locked);
+		}
+    }
+    
+    public void save(View view) {
+    	LockedDocument mlocked = mObjects.getLockedDoc();
+    	mlocked.setTitle(text1.getText().toString());
+    	mlocked.setContents(text2.getText().toString());
+    	
+    	UnlockedDocument unlocked = null;
+    	try {
+			unlocked = service.saveDocument(mlocked);
+		} catch (InvalidRequest e) {
+			Toast.makeText(this, "Error saving document due to invalid request", 
+					Toast.LENGTH_LONG).show();
+		} catch (LockExpired e) {
+			Toast.makeText(this, "Lock expired", Toast.LENGTH_LONG).show();
+			if (mlocked != null) {
+				mObjects.setUnlockedDoc(mlocked.unlock());
+				setView(mlocked.unlock());
+			}
+		}
+		
+    	if (unlocked != null) {
+			setView(unlocked);
+			mObjects.setUnlockedDoc(unlocked);
+		}
+    }
+    
+    @Override
+    public void onBackPressed() {
+        // do something on back.
+        return;
+    }
+
+}

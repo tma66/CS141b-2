@@ -1,0 +1,5 @@
+package edu.caltech.cs141b.hw5.android;
+
+public class DocumentDisplayActivityGroup extends ActivityGroup {
+
+}

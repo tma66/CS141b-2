@@ -1,63 +1,59 @@
 package edu.caltech.cs141b.hw5.android;
 
-import java.util.List;
-
-import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import edu.caltech.cs141b.hw5.android.data.DocumentMetadata;
-import edu.caltech.cs141b.hw5.android.data.InvalidRequest;
-import edu.caltech.cs141b.hw5.android.data.LockExpired;
-import edu.caltech.cs141b.hw5.android.data.LockUnavailable;
-import edu.caltech.cs141b.hw5.android.data.LockedDocument;
-import edu.caltech.cs141b.hw5.android.proto.CollabServiceWrapper;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class CollaboratorAndroidActivity extends Activity {
+public class CollaboratorAndroidActivity extends ListActivity {
+    private String[] mainMenu;
+	private MyObjects mObjects;
 	
-	private static String TAG = "AndroidActivity";
-	
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        Log.d(TAG, "starting activity");
-        String docsInfo = "";
-        
-        // Test getting the document list and print it out on screen
-        CollabServiceWrapper service = new CollabServiceWrapper();      
-        List<DocumentMetadata> metas = service.getDocumentList();
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// Set up main page
+		super.onCreate(savedInstanceState);
+		mObjects = (MyObjects)getApplicationContext();
+
+		// The three buttons that user can click from the main page
+		mainMenu = new String[] { "Document List", "Document Display", "Console" };
       
-        for (DocumentMetadata meta : metas) {
-        	docsInfo += meta.getKey() + ": " + meta.getTitle() + "\n"; 
-        }
-        
-        // Try lock and unlocking a document
-        try {
-			LockedDocument ld = service.lockDocument(metas.get(0).getKey());
-			Log.i(TAG, "locked");
-			
-			// try modify and save the document
-			LockedDocument mld = new LockedDocument(ld.getLockedBy(), 
-					ld.getLockedUntil(), ld.getKey(), ld.getTitle() + " mod1", ld.getContents());
-			service.saveDocument(mld);
-			Log.i(TAG, "saved");
-			
-			// Should get lock expired here
-			service.releaseLock(ld);
-			Log.i(TAG, "unlocked");
-        } catch (LockExpired e) {
-        	Log.i(TAG, "lock expired when attemping release.");
-		} catch (LockUnavailable e) {
-			Log.i(TAG, "Lock unavailable.");
-		} catch (InvalidRequest e) {
-			Log.i(TAG, "Invalid request");
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, mainMenu);
+		setListAdapter(adapter);
+	}
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// Click handler for items on main page
+		String item = (String) getListAdapter().getItem(position);
+		if (item.equals(mainMenu[0])) {
+			// If Document List is clicked, send user to document list page
+			Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+			Intent intent = new Intent().setClass(this, DocumentListActivity.class);
+			startActivity(intent);
+		} else if (item.equals(mainMenu[1])) {
+			// Handle if Document Display is clicked
+			// If no document has been opened, tell user to choose a document first
+			if (mObjects.getLockedDoc() == null && mObjects.getUnlockedDoc() == null) {
+				Toast.makeText(this, "Please select a document from the Document List first", Toast.LENGTH_LONG).show();
+			} else {
+				// Otherwise, send user to current opened document page
+				Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+				Intent intent = new Intent().setClass(this, DocumentDisplayActivity.class);
+				intent.putExtra("method", "main");
+				startActivity(intent);
+			}
+		} else if (item.equals(mainMenu[2])) {
+			// If Console is clicked, send user to console page
+			Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+			Intent intent = new Intent().setClass(this, ConsoleActivity.class);
+			startActivity(intent);
+		} else {
+			Toast.makeText(this, "Invalid Selection", Toast.LENGTH_LONG).show();
 		}
-        
-        TextView tv = new TextView(this);
-        tv.setText(docsInfo);
-        setContentView(tv);
-        //setContentView(R.layout.main);
-    }
+	}
 }

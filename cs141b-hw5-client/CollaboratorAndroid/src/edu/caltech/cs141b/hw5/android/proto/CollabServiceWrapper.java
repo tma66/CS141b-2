@@ -143,15 +143,13 @@ public class CollabServiceWrapper {
 	 * @throws InvalidRequest
 	 */
 	public UnlockedDocument saveDocument(LockedDocument doc) 
-			throws LockExpired, InvalidRequest {	
+			throws LockExpired, InvalidRequest {
 		RequestMessage request = RequestMessage.newBuilder()
 				.setRequestType(RequestType.SAVE_DOCUMENT)
 				.setLockedDoc(DataConverter.buildLockedDocumentInfo(doc))
 				.build();
-		
 		RequestTaskAsync reqTask = new RequestTaskAsync();
 		reqTask.execute(request);		
-		
 		try {
 			ResponseMessage response = reqTask.get();
 			if (response == null)
@@ -165,7 +163,7 @@ public class CollabServiceWrapper {
 					throw new InvalidRequest(response.getMessage());
 			}
 		} catch (InterruptedException e) {
-			Log.e(TAG, "Thrad interrupted." + e.getMessage());
+			Log.e(TAG, "Thread interrupted." + e.getMessage());
 		} catch (ExecutionException e) {
 			Log.e(TAG, "Getting response terminated from exception." + e.getMessage());
 		}		

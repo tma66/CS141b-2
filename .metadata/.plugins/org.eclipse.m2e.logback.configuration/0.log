@@ -11,3 +11,33 @@
 2012-02-28 14:35:42,621 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
 2012-02-28 15:31:51,172 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
 2012-02-28 15:31:59,005 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 7834 ms
+2012-02-28 21:03:48,233 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 21:06:21,461 [Worker-8] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 21:06:35,280 [Worker-8] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 13819 ms
+2012-02-28 21:14:10,027 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 21:16:25,743 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 21:16:30,463 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 4721 ms
+2012-02-28 21:25:45,080 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 21:27:47,481 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 21:27:50,656 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 3176 ms
+2012-02-28 21:57:40,403 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 21:57:55,672 [Worker-11] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 21:58:02,168 [Worker-11] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 6657 ms
+2012-02-28 22:10:41,811 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 22:19:48,130 [Worker-1] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 22:19:51,186 [Worker-1] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 3056 ms
+2012-02-28 22:32:39,291 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 22:33:03,317 [Worker-7] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 22:33:09,986 [Worker-7] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 6669 ms
+2012-02-28 22:35:09,821 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-02-28 22:35:39,015 [Worker-2] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-02-28 22:35:42,137 [Worker-2] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 3122 ms
+2012-03-06 14:20:58,489 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-03-06 14:21:53,784 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-03-06 14:26:16,081 [Worker-4] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 262297 ms
+2012-03-07 14:22:55,372 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-03-07 14:25:45,231 [Worker-9] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-03-07 14:26:28,927 [Worker-9] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 43697 ms
+2012-03-07 15:07:13,403 [org.eclipse.jdt.internal.ui.text.JavaReconciler] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+2012-03-07 15:11:35,585 [Worker-15] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2012-03-07 15:11:40,841 [Worker-15] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updated index for repository: central|http://repo1.maven.org/maven2 in 5255 ms

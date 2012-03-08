@@ -1,0 +1,190 @@
+package edu.caltech.cs141b.hw5.android;
+
+import java.util.List;
+
+import edu.caltech.cs141b.hw5.android.data.DocumentMetadata;
+import edu.caltech.cs141b.hw5.android.data.InvalidRequest;
+import edu.caltech.cs141b.hw5.android.data.LockExpired;
+import edu.caltech.cs141b.hw5.android.data.LockUnavailable;
+import edu.caltech.cs141b.hw5.android.data.LockedDocument;
+import edu.caltech.cs141b.hw5.android.data.UnlockedDocument;
+import edu.caltech.cs141b.hw5.android.proto.CollabServiceWrapper;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class DocumentDisplayActivity extends Activity {
+
+	private static String TAG = "DocumentDisplayActivity";
+	private Button save;
+	private Button lock;
+	private Button refresh;
+	private EditText text1;
+	private EditText text2;
+	
+	public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.documentdisplay);
+        save = (Button) findViewById(R.id.save);
+        lock = (Button) findViewById(R.id.lock);
+        refresh = (Button) findViewById(R.id.refresh);
+        text1 = (EditText) findViewById(R.id.title);
+		text2 = (EditText) findViewById(R.id.contents);
+        
+        CollabServiceWrapper service = new CollabServiceWrapper();
+        MyObjects mObjects = (MyObjects)getApplicationContext();
+        
+        Bundle extras = getIntent().getExtras();
+		if (extras == null) {
+			return;
+		}
+		
+		if (extras.getString("method").equals("list")) {
+			
+			String key = extras.getString("documentKey");
+			if (key == null) {
+				return;
+			}
+			
+			if (key.equals("null")) {
+				LockedDocument doc = new LockedDocument(null, null, null,
+						"Enter the document title.",
+						"Enter the document contents.");
+				mObjects.setLockedDoc(doc);
+				setView(doc);
+			} else {
+				try {
+					UnlockedDocument doc = service.getDocument(key);
+					mObjects.setUnlockedDoc(doc);
+					setView(doc);
+				} catch (InvalidRequest e) {
+					e.printStackTrace();
+				}
+			}
+		} else if (extras.getString("method").equals("main")) {
+			 UnlockedDocument unLockedDoc = mObjects.getUnlockedDoc();
+             LockedDocument lockedDoc = mObjects.getLockedDoc();
+             if (unLockedDoc != null) {
+                 setView(unLockedDoc);
+             } else if (lockedDoc != null) {
+            	 setView(lockedDoc);
+             }
+		}
+		
+		
+		// Try lock and unlocking a document
+        /*try {
+			LockedDocument ld = service.lockDocument(metas.get(0).getKey());
+			Log.i(TAG, "locked");
+			
+			// try modify and save the document
+			LockedDocument mld = new LockedDocument(ld.getLockedBy(), 
+					ld.getLockedUntil(), ld.getKey(), ld.getTitle() + " mod1", ld.getContents());
+			service.saveDocument(mld);
+			Log.i(TAG, "saved");
+			
+			// Should get lock expired here
+			service.releaseLock(ld);
+			Log.i(TAG, "unlocked");
+        } catch (LockExpired e) {
+        	Log.i(TAG, "lock expired when attemping release.");
+		} catch (LockUnavailable e) {
+			Log.i(TAG, "Lock unavailable.");
+		} catch (InvalidRequest e) {
+			Log.i(TAG, "Invalid request");
+		}*/
+        
+    }
+
+	private void setView(UnlockedDocument doc) {
+		text1.setText(doc.getTitle());
+		text2.setText(doc.getContents());
+		text1.setFocusable(false);
+		text1.setEnabled(false);
+		text2.setFocusable(false);
+		text2.setEnabled(false);
+		save.setEnabled(false);
+		lock.setEnabled(true);
+		refresh.setEnabled(true);
+	}
+	private void setView(LockedDocument doc) {
+		text1.setText(doc.getTitle());
+		text2.setText(doc.getContents());
+		text1.setFocusableInTouchMode(true);
+		text1.setEnabled(true);
+		text2.setFocusableInTouchMode(true);
+		text2.setEnabled(true);
+		lock.setEnabled(false);
+		refresh.setEnabled(false);
+		save.setEnabled(true);
+	}
+
+    public void mainMenu(View view) {
+    	Intent intent = new Intent().setClass(this, CollaboratorAndroidActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void refresh(View view) {
+    	CollabServiceWrapper service = new CollabServiceWrapper();
+    	MyObjects mObjects = (MyObjects)getApplicationContext();
+    	UnlockedDocument unlocked = null;
+		try {
+			unlocked = service.getDocument(mObjects.getCurrentDocumentKey());
+		} catch (InvalidRequest e) {
+			e.printStackTrace();
+		}
+    	if (unlocked != null) {
+			setView(unlocked);
+		}
+    }
+    
+    public void lock(View view) {
+    	CollabServiceWrapper service = new CollabServiceWrapper();
+    	MyObjects mObjects = (MyObjects)getApplicationContext();
+    	LockedDocument locked = null;
+    	try {
+			locked = service.lockDocument(mObjects.getCurrentDocumentKey());
+		} catch (InvalidRequest e) {
+			e.printStackTrace();
+		} catch (LockUnavailable e) {
+			e.printStackTrace();
+		}
+    	if (locked != null) {
+			setView(locked);
+		}
+    }
+    
+    public void save(View view) {
+    	String test = text1.getText().toString();
+    	String test2 = text2.getText().toString();
+
+    	CollabServiceWrapper service = new CollabServiceWrapper();
+    	MyObjects mObjects = (MyObjects)getApplicationContext();
+		LockedDocument mlocked = mObjects.getLockedDoc();
+		
+    	//LockedDocument locked = new LockedDocument(mlocked.getLockedBy(), 
+    		//	mlocked.getLockedUntil(), mlocked.getKey(), test, test2);
+		Log.i(TAG, "saved");
+    	//mObjects.setLockedDoc(locked);
+    	
+    	/*UnlockedDocument unlocked = null;
+    	try {
+			unlocked = service.saveDocument(locked);
+		} catch (InvalidRequest e) {
+			e.printStackTrace();
+		} catch (LockExpired e) {
+			e.printStackTrace();
+		}
+    	if (unlocked != null) {
+			setView(unlocked);
+			mObjects.setUnlockedDoc(unlocked);
+		}*/
+    }
+    
+}

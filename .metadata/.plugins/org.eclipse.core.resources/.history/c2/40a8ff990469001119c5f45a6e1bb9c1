@@ -1,0 +1,58 @@
+package edu.caltech.cs141b.hw5.android;
+
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class CollaboratorAndroidActivity extends ListActivity {
+    private String[] mainMenu;
+	private MyObjects mObjects;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// Set up main page
+		super.onCreate(savedInstanceState);
+		mObjects = (MyObjects)getApplicationContext();
+
+		mainMenu = new String[] { "Document List", "Document Display", "Console" };
+      
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, mainMenu);
+		setListAdapter(adapter);
+	}
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// Click handler for items on main page
+		String item = (String) getListAdapter().getItem(position);
+		if (item.equals(mainMenu[0])) {
+			// If Document List is clicked, send user to document list page
+			Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+			Intent intent = new Intent().setClass(this, DocumentListActivity.class);
+			startActivity(intent);
+		} else if (item.equals(mainMenu[1])) {
+			// Handle if Document Display is clicked
+			// If no document has been opened, tell user to choose a document first
+			if (mObjects.getLockedDoc() == null && mObjects.getUnlockedDoc() == null) {
+				Toast.makeText(this, "Please select a document from the Document List first", Toast.LENGTH_LONG).show();
+			} else {
+				// Otherwise, send user to current opened document page
+				Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+				Intent intent = new Intent().setClass(this, DocumentDisplayActivity.class);
+				intent.putExtra("method", "main");
+				startActivity(intent);
+			}
+		} else if (item.equals(mainMenu[2])) {
+			// If Console is clicked, send user to console page
+			Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+			Intent intent = new Intent().setClass(this, ConsoleActivity.class);
+			startActivity(intent);
+		} else {
+			Toast.makeText(this, "Invalid Selection", Toast.LENGTH_LONG).show();
+		}
+	}
+}

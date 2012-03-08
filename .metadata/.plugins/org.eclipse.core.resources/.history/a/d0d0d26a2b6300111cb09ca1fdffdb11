@@ -1,0 +1,68 @@
+package edu.caltech.cs141b.hw5.android;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.caltech.cs141b.hw5.android.data.DocumentMetadata;
+import edu.caltech.cs141b.hw5.android.data.InvalidRequest;
+import edu.caltech.cs141b.hw5.android.data.LockExpired;
+import edu.caltech.cs141b.hw5.android.data.LockUnavailable;
+import edu.caltech.cs141b.hw5.android.data.LockedDocument;
+import edu.caltech.cs141b.hw5.android.proto.CollabServiceWrapper;
+import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class DocumentListActivity extends ListActivity {
+
+	private static String TAG = "DocumentListActivity";
+	List<DocumentMetadata> metas = null;
+	
+	private void retrieveList() {
+		ArrayList<String> titles = new ArrayList<String>();
+        
+        // Test getting the document list and print it out on screen
+        CollabServiceWrapper service = new CollabServiceWrapper();      
+        metas = service.getDocumentList();
+      
+        for (DocumentMetadata meta : metas) {
+        	titles.add(meta.getTitle());
+        }
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, titles);
+		setListAdapter(adapter);
+	}
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		String item = (String) getListAdapter().getItem(position);
+		Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+		
+	}
+	
+	public void createNew(View view) {
+		Intent intent = new Intent().setClass(this, DocumentDisplayActivity.class);
+
+		intent.putExtra("documentKey", null);
+		startActivity(intent);
+	}
+	
+	public void refreshList(View view) {
+		retrieveList();
+	}
+	
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.documentlist);
+        
+        Log.d(TAG, "starting activity");
+        retrieveList();
+	}
+}

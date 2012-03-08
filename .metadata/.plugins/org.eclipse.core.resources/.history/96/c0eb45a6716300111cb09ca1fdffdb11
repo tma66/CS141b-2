@@ -1,0 +1,59 @@
+package edu.caltech.cs141b.hw5.android;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.app.TabActivity;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TabHost;
+import android.widget.TextView;
+import edu.caltech.cs141b.hw5.android.data.DocumentMetadata;
+import edu.caltech.cs141b.hw5.android.data.InvalidRequest;
+import edu.caltech.cs141b.hw5.android.data.LockExpired;
+import edu.caltech.cs141b.hw5.android.data.LockUnavailable;
+import edu.caltech.cs141b.hw5.android.data.LockedDocument;
+import edu.caltech.cs141b.hw5.android.proto.CollabServiceWrapper;
+
+public class CollaboratorAndroidActivity extends TabActivity {
+    /** Called when the activity is first created. */
+	private static String TAG = "AndroidActivity";
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        
+        Resources res = getResources(); // Resource object to get Drawables
+        TabHost tabHost = getTabHost();  // The activity TabHost
+        TabHost.TabSpec spec;  // Reusable TabSpec for each tab
+        Intent intent;  // Reusable Intent for each tab
+        
+        // Create an Intent to launch an Activity for the tab (to be reused)
+        intent = new Intent().setClass(this, DocumentListActivity.class);
+        
+        // Initialize a TabSpec for each tab and add it to the TabHost
+        spec = tabHost.newTabSpec("List").setIndicator("List",
+                          res.getDrawable(R.drawable.ic_tab_document))
+                      .setContent(intent);
+        
+        tabHost.addTab(spec);
+        
+        // Do the same for the other tabs
+        tabHost.addTab(tabHost.newTabSpec("Tab")
+                .setIndicator("Tab")
+                .setContent(new Intent(this, DocumentDisplayActivityGROUP.class)
+                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
+
+        intent = new Intent().setClass(this, ConsoleActivity.class);
+        spec = tabHost.newTabSpec("Console").setIndicator("Console",
+                          res.getDrawable(R.drawable.ic_tab_document))
+                      .setContent(intent);
+        tabHost.addTab(spec);
+
+        tabHost.setCurrentTab(0);
+        
+    }
+}

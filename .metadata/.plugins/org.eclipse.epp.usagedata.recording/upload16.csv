@@ -1,0 +1,226 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501136049
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501216685
+activated,view,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.PackageExplorer",1330501218710
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501224838
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501228798
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501239941
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501257153
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.newWizard",1330501257180
+opened,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501259459
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501259534
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501264511
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501274417
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501275944
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501301187
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501315623
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501315624
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501321165
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501321166
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501328362
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501328363
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501331348
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501333673
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501334759
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501339684
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501347136
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501356642
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501363922
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501363923
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501383610
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501383623
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501383624
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501387477
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501538900
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501540705
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501545358
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501557408
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501567960
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501576239
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501578122
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501582874
+activated,view,com.android.ide.eclipse.ddms,16.0.1.v201112150204-238534,"com.android.ide.eclipse.ddms.views.LogCatView",1330501623276
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501632193
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501635485
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501637768
+activated,view,com.android.ide.eclipse.ddms,16.0.1.v201112150204-238534,"com.android.ide.eclipse.ddms.views.LogCatView",1330501653289
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501653926
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1330501657442
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501659726
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501662543
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501668501
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501671266
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501705444
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501705867
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501706684
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501707312
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501708620
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501724628
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501734976
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501740872
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501741006
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501745552
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501745942
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501746636
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330501748400
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501749424
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501764412
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330501774193
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501775152
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501795317
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501801013
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501851899
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501854967
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501860769
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501861808
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501863197
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501866591
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501891844
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501896630
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501897572
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501897591
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501897592
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1330501914640
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501917415
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501922204
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501922213
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501922214
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501927078
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501927097
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501927098
+error,log,,,"documentlist.xml: addView(View, LayoutParams) is not supported in AdapterView",1330501940037
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330501953064
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330501953080
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330501953081
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501959129
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501967351
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330501968998
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501971647
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501972864
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501980823
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501981529
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501987620
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501990376
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501992594
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330501998707
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330501999669
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502045137
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502046887
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502047164
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502048218
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502048989
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502049584
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502050289
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502050857
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502051356
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502053503
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502053512
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502053513
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502055767
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502057511
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502057519
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502057520
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330502060482
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502068685
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502068701
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502068702
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502080259
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502083123
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502083704
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502088241
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1330502091405
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502092059
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330502097386
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502101925
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502104968
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502115162
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502115163
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502119602
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502123090
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502125627
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502128135
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502129187
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502133127
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502133141
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502133142
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502134064
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502135298
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502154940
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502163396
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1330502182705
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330502184695
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502185864
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502189213
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502196772
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502196773
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502199174
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502199175
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502199176
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502199863
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502203993
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502214897
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502214933
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502214933
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502218215
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502246265
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502251680
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502251681
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502255296
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502257061
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502267533
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502267534
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502285558
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502288481
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502288482
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502289301
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502289302
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502310006
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502310007
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502312015
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502324451
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502324452
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502327089
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502327090
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502332948
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502332949
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502346771
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502346771
+error,log,,,"Unhandled event loop exception",1330502346900
+error,log,,,"Unhandled event loop exception",1330502346902
+error,log,,,"Unhandled event loop exception",1330502347320
+error,log,,,"Unhandled event loop exception",1330502347327
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502348514
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502358576
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502358577
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502366064
+started,bundle,org.eclipse.wst.dtd.core,1.1.501.v201107252021,"org.eclipse.wst.dtd.core",1330502376075
+started,bundle,org.eclipse.emf.ecore,2.7.0.v20120127-1122,"org.eclipse.emf.ecore",1330502376262
+started,bundle,org.eclipse.emf.ecore.xmi,2.7.0.v20120127-1122,"org.eclipse.emf.ecore.xmi",1330502376525
+error,log,,,"Unhandled event loop exception",1330502378480
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502379327
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502379354
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502379355
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502404523
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502404524
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502404526
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502442179
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502442869
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502443628
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1330502445834
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.redo",1330502447304
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.redo",1330502447767
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502450643
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502450655
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502450655
+activated,editor,org.eclipse.jdt.ui,3.7.0.v20110531-1200,"org.eclipse.jdt.ui.CompilationUnitEditor",1330502455411
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502473335
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502525536
+activated,editor,com.android.ide.eclipse.adt,16.0.1.v201112150204-238534,"com.android.ide.eclipse.editors.layout.LayoutEditor",1330502527048
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502529725
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502535780
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1330502539615
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1330502549307
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\AndroidManifest.xml in workspace",1330502549319
+error,log,,,"Can't find file C:\\Users\\tma\\CS141b-2\\cs141b-hw5-client\\CollaboratorAndroid\\res\\layout\\documentlist.xml in workspace",1330502549320
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502550696
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1330502563569
